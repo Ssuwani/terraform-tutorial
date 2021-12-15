@@ -1,3 +1,22 @@
+terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+    }
+    random = {
+      source = "hashicorp/random"
+    }
+  }
+
+  cloud {
++   organization = "suwan"
+
+    workspaces {
+      name = "gh-actions"
+    }
+  }
+}
+
 provider "aws" {
     region = "us-east-2"
 }
