@@ -36,3 +36,15 @@ resource "aws_instance" "test" {
               nohup busybox httpd -f -p 8080 &
               EOF
 }
+
+resource "aws_security_group" "instance" {
+	name = "terraform-example-instance"
+
+	ingress {
+		from_port = 8080
+		to_port = 8080
+		protocol = "tcp"
+		cidr_bolcks = ["0.0.0.0/0"]
+	}
+
+}
