@@ -30,4 +30,9 @@ resource "aws_instance" "test" {
   tags = {
     Name = "HelloWorld"
   }
+  user_data = <<-EOF
+              #!/bin/bash
+              echo "Hello, World" > index.html
+              nohup busybox httpd -f -p 8080 &
+              EOF
 }
