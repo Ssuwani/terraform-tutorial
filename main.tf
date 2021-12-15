@@ -2,11 +2,9 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "3.26.0"
     }
     random = {
       source  = "hashicorp/random"
-      version = "3.0.1"
     }
   }
   required_version = ">= 1.1.0"
@@ -45,7 +43,7 @@ resource "aws_security_group" "instance" {
 		from_port = 8080
 		to_port = 8080
 		protocol = "tcp"
-		cidr_bolcks = ["0.0.0.0/0"]
+		cidr_blocks = ["0.0.0.0/0"]
 	}
 
 }
