@@ -1,10 +1,10 @@
 terraform {
   required_providers {
     aws = {
-      source  = "hashicorp/aws"
+      source = "hashicorp/aws"
     }
     random = {
-      source  = "hashicorp/random"
+      source = "hashicorp/random"
     }
   }
   required_version = ">= 1.1.0"
@@ -22,8 +22,8 @@ provider "aws" {
 }
 
 resource "aws_instance" "test" {
-  ami           = "ami-0c55b159cbfafe1f0"
-  instance_type = "t2.micro"
+  ami                    = "ami-0c55b159cbfafe1f0"
+  instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.instance.id]
 
   tags = {
@@ -37,13 +37,12 @@ resource "aws_instance" "test" {
 }
 
 resource "aws_security_group" "instance" {
-	name = "terraform-example-instance"
+  name = "terraform-example-instance"
 
-	ingress {
-		from_port = 8080
-		to_port = 8080
-		protocol = "tcp"
-		cidr_blocks = ["0.0.0.0/0"]
-	}
-
+  ingress {
+    from_port   = 8080
+    to_port     = 8080
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 }
